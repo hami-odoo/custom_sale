@@ -1,8 +1,13 @@
 from odoo import models
 
 class CustomPosSession(models.Model):
+    """ 
+        Custom POS Session
+    """
+    
     _inherit="pos.session"
 
+    # Added hide_variant key to the fields.
     def _loader_params_product_product(self):   
         return {
             'search_params': {

@@ -5,6 +5,7 @@ class CustomSaleOrder(models.Model):
     """
         Custom SaleOrder model
     """
+    
     _inherit = "sale.order"
     _description = ""
 

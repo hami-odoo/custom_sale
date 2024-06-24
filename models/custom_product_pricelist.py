@@ -4,6 +4,7 @@ class CustomProductPricelist(models.Model):
     """
         Custom ProductPricelist model
     """
+    
     _inherit = "product.pricelist"
     _description = "Custom Price List"
 

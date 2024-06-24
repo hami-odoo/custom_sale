@@ -5,6 +5,7 @@ class CustomProduct(models.Model):
     """
         Custom ProductTemplate model
     """
+    
     _inherit = 'product.template'
     _description = 'Class for customization on Product Form'
 
