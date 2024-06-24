@@ -50,7 +50,7 @@ class CustomSaleOrder(models.Model):
             
             for product_id in product_purchase_order_line_dict.keys():
                 if product_id in product_sale_order_line_dict:
-                    if product_sale_order_line_dict[product_id].price_unit != product_purchase_order_line_dict[product_id].price_total:
+                    if product_sale_order_line_dict[product_id].price_unit != product_purchase_order_line_dict[product_id].price_unit:
                         raise ValidationError("Some Order's price may not be updated. Kindly Update them before confirming.")
 
         return super().action_confirm()
