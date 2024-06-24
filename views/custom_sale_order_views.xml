@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="custom_sale_order_form_views" model="ir.ui.view">
+        <field name="name">custom.sale.order.form.views</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form/header" position="inside">
+                    <field name='auto_purchase_order_id' invisible="1"/>
+                    <button name="update_price" string="Update Price" type="object" invisible="not auto_purchase_order_id or state in ['sale', 'cancel']"/>
+                </xpath>
+            <xpath expr="//page[@name='other_information']/group[1]/group[@name='sales_person']/field[@name='user_id']" position="after">
+                <field name="employee_id"  />
+            </xpath>
+        </field>
+    </record>
+
+    <record id="custom_sale_order_view_pivot" model="ir.ui.view">
+        <field name="name">custom.sale.order.view.pivot</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_sales_order_filter" />
+        <field name="arch" type="xml">
+            <xpath expr="//search/group" position="inside">
+                <filter string="Employee" name="employee_id" domain="[]" context="{'group_by': 'employee_id'}"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="custom_report_saleorder_document" inherit_id="sale.report_saleorder_document">
+        <xpath expr="//div[@class='page']/table/tbody[@class='sale_tbody']/t[2]/tr/t/td[@name='td_name']" position="replace">
+            <td name="td_name">
+                <span t-if="line.product_template_id.hide_variant" t-esc="request.env['product.template'].hide_variant_name(line.name)">Bacon Burger</span>
+                <span t-else="" t-esc="line.name"/>
+            </td>
+        </xpath>
+    </template>
+</odoo>
