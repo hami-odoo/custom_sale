@@ -5,7 +5,7 @@ class CustomSaleOrder(models.Model):
     """
         Custom SaleOrder model
     """
-    
+
     _inherit = "sale.order"
     _description = ""
 
@@ -31,7 +31,7 @@ class CustomSaleOrder(models.Model):
             
             for product_id in product_purchase_order_line_dict.keys():
                 if product_id in product_sale_order_line_dict:
-                    product_sale_order_line_dict[product_id].price_unit = product_purchase_order_line_dict[product_id].price_total
+                    product_sale_order_line_dict[product_id].price_unit = product_purchase_order_line_dict[product_id].price_unit
 
         return True
     
